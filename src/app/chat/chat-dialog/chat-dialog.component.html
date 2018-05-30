@@ -1,0 +1,9 @@
+<h1>ChatBot</h1>
+<ng-container *ngFor="let message of messages | async">
+  <div class="message" [ngClass] = "{ 'from': message.sentBy === 'bot', 'to': message.sentBy === 'user' }" >
+    {{ message.content }}
+  </div>
+</ng-container>
+<label class="msgHeading" for="nameField">Type Your Message</label>
+<input [(ngModel)]="formValue" class="userMessage" (keyup.enter)="sendMessage()" type="text"> <br>
+<button class="button" type="Submit" (click)="sendMessage()">Send</button>
